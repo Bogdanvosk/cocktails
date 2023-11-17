@@ -1,0 +1,22 @@
+.select {
+  .el-input__wrapper {
+    background-color: $bg-color;
+  }
+
+  .el-input__inner {
+    color: $text-color;
+    font-family: $primary-font;
+  }
+}
+.el-select-dropdown__item.selected {
+  color: $accent-color !important;
+}
+
+.el-button--large.is-circle {
+  background-color: transparent;
+  color: $text-color;
+
+  &:active {
+    border-color: $accent-color;
+  }
+}
