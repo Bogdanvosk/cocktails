@@ -20,8 +20,7 @@ const removeIngredient = () => {
 </script>
 
 <template>
-	<AppLayout :imgUrl="'/src/assets/img/bg-1.jpg'" :backFunc="removeIngredient"
-		:isBackButtonVisible="!!currentIngredient">
+	<AppLayout :backFunc="removeIngredient" :isBackButtonVisible="!!currentIngredient">
 		<div class="wrapper">
 			<div v-if="!currentIngredient || !cocktails" class="info">
 				<h1 class="title">Choose your drink</h1>

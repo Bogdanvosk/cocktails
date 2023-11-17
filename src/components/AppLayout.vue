@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Back } from '@element-plus/icons-vue';
 interface Props {
-	imgUrl: string;
 	backFunc: () => void;
 	isBackButtonVisible: boolean;
 }
@@ -13,7 +12,7 @@ defineProps<Props>();
 
 <template>
 	<div class="root">
-		<div :style="`background-image: url(${imgUrl})`" class="img"></div>
+		<div class="img"></div>
 		<div class="main">
 			<div class="head">
 				<el-button v-if="isBackButtonVisible" :icon="Back" size="large" circle @click="backFunc" />
@@ -37,6 +36,8 @@ defineProps<Props>();
 	width: 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
+
+	background-image: url(/src/assets/img/bg.jpg);
 }
 
 .main {
