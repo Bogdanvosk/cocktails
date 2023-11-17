@@ -28,7 +28,7 @@ const removeIngredient = () => {
 				<div class="line"></div>
 				<div class="select-wrapper">
 					<el-select v-model="rootStore.currentIngredient" class="select" placeholder="Choose main ingredient"
-						size="large" filterable allow-create @change="getCocktailByIngredient">
+						size="large" allow-create @change="getCocktailByIngredient">
 						<el-option v-for="item in ingredients" :key="item.strIngredient1" :label="item.strIngredient1"
 							:value="item.strIngredient1" />
 					</el-select>
