@@ -20,7 +20,7 @@ const removeIngredient = () => {
 </script>
 
 <template>
-	<AppLayout :backFunc="removeIngredient" :isBackButtonVisible="!!currentIngredient">
+	<AppLayout :imgUrl="'/src/assets/img/bg-1.jpg'" :backFunc="removeIngredient" :isBackButtonVisible="!!currentIngredient">
 		<div class="wrapper">
 			<div v-if="!currentIngredient || !cocktails" class="info">
 				<h1 class="title">Choose your drink</h1>
@@ -60,7 +60,7 @@ const removeIngredient = () => {
 }
 
 .info {
-	padding: 80px 0;
+	padding: 0 0 80px 0;
 	text-align: center;
 }
 

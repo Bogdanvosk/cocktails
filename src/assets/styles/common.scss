@@ -44,3 +44,16 @@ a {
   background-color: $accent-color;
   margin: 32px auto 0;
 }
+
+.text {
+	margin: 0 auto;
+	max-width: 516px;
+  text-align: center;
+
+	p {
+		color: $text-muted-color;
+		font-size: 20px;
+		line-height: 30px;
+		letter-spacing: .1em;
+	}
+}

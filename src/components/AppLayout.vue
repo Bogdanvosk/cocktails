@@ -1,22 +1,44 @@
 <script setup lang="ts">
+import { useRoute, useRouter } from 'vue-router';
 import { Back } from '@element-plus/icons-vue';
+import { computed } from 'vue';
+import { ROUTES_PATHS } from '@/constants';
+
 interface Props {
-	backFunc: () => void;
+	imgUrl: string;
 	isBackButtonVisible: boolean;
+	backFunc?: () => void;
 }
 
-defineProps<Props>();
+const props = defineProps<Props>();
 
+const router = useRouter();
+const route = useRoute();
+
+const routeName = computed(() => route.name);
+
+const goForRandomCocktail = () => {
+	router.push(ROUTES_PATHS.COCKTAIL_RANDOM);
+	if (routeName.value === ROUTES_PATHS.COCKTAIL_RANDOM) {
+		router.go(0);
+	}
+};
+
+const goBack = () => {
+	props.backFunc ? props.backFunc() : router.go(-1);
+}
 
 </script>
 
 <template>
 	<div class="root">
-		<div class="img"></div>
+		<div :style="`background-image: url(${imgUrl})`" class="img"></div>
 		<div class="main">
 			<div class="head">
-				<el-button v-if="isBackButtonVisible" :icon="Back" size="large" circle @click="backFunc" />
-				<el-button class="btn">Get random cocktail</el-button>
+				<el-button v-if="isBackButtonVisible" :icon="Back" size="large" circle @click="goBack" />
+				<!-- <router-link to="/random" class="random-link"> -->
+				<el-button class="btn" @click="goForRandomCocktail">Get random cocktail</el-button>
+				<!-- </router-link> -->
 			</div>
 			<slot></slot>
 		</div>
@@ -36,8 +58,6 @@ defineProps<Props>();
 	width: 50%;
 	background-repeat: no-repeat;
 	background-size: cover;
-
-	background-image: url(/src/assets/img/bg.jpg);
 }
 
 .main {
@@ -50,6 +70,7 @@ defineProps<Props>();
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	margin-bottom: 80px;
 }
 
 .btn {
@@ -68,5 +89,9 @@ defineProps<Props>();
 	&:active {
 		border-color: lighten($accent-color, 20%);
 	}
+}
+
+.random-link {
+	margin-left: auto;
 }
 </style>

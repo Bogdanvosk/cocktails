@@ -43,15 +43,11 @@ const getCocktail = async () => {
 
 getCocktail();
 
-const backFunc = () => {
-	router.go(-1);
-}
-
 </script>
 
 <template>
 	<div v-if="cocktail" class="wrap">
-		<AppLayout :imgUrl="cocktail.strDrinkThumb" :backFunc="backFunc" :isBackButtonVisible="true">
+		<AppLayout :imgUrl="cocktail.strDrinkThumb" :isBackButtonVisible="true">
 			<div class="wrapper">
 				<div class="info">
 					<h1 class="title">{{ cocktail.strDrink }}</h1>
@@ -103,7 +99,7 @@ const backFunc = () => {
 
 .info {
 	width: 100%;
-	padding: 80px 0;
+	padding: 0 0 80px 0;
 	text-align: center;
 }
 
@@ -125,18 +121,6 @@ const backFunc = () => {
 
 		font-size: 18px;
 		line-height: 27px;
-		letter-spacing: .1em;
-	}
-}
-
-.text {
-	margin: 0 auto;
-	max-width: 516px;
-
-	p {
-		color: $text-muted-color;
-		font-size: 20px;
-		line-height: 30px;
 		letter-spacing: .1em;
 	}
 }
