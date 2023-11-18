@@ -9,11 +9,6 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import 'swiper/css';
 
-type Ingredient = {
-	name: string,
-	measure: string;
-};
-
 const cocktail = ref<FullCocktail | any>();
 
 const ingredients = computed(() => {

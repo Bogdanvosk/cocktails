@@ -32,7 +32,7 @@ const goBack = () => {
 
 <template>
 	<div class="root">
-		<div :style="`background-image: url(${imgUrl})`" class="img"></div>
+		<div :style="{ backgroundImage: `url(${props.imgUrl})` }" class="img"></div>
 		<div class="main">
 			<div class="head">
 				<el-button v-if="isBackButtonVisible" :icon="Back" size="large" circle @click="goBack" />
