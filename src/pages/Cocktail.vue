@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useRoute, useRouter } from 'vue-router';
+import { useRoute } from 'vue-router';
 import axios from 'axios';
 import AppLayout from '@/components/AppLayout.vue';
 import { computed, ref } from 'vue';
@@ -13,7 +13,6 @@ type Ingredient = {
 
 const cocktail = ref<FullCocktail | any>();
 const route = useRoute();
-const router = useRouter();
 const cocktailId = computed(() => route.path.split('/').pop());
 
 const ingredients = computed(() => {

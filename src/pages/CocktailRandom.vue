@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
 import axios from 'axios';
 import AppLayout from '@/components/AppLayout.vue';
 import { computed, ref } from 'vue';
@@ -16,7 +15,6 @@ type Ingredient = {
 };
 
 const cocktail = ref<FullCocktail | any>();
-const router = useRouter();
 
 const ingredients = computed(() => {
 	const ingredients: string[] = [];
@@ -47,8 +45,7 @@ getCocktail();
 					<div class="slider">
 						<swiper class="swiper" :slides-per-view="3" :space-between="80">
 							<swiper-slide class="swiper-slide" v-for="ingredient in ingredients" :key="ingredient">
-								<img :src="`${INGREDIENTS_THUMB_URL}${ingredient}-Small.png`"
-									alt="Igredient thumb">
+								<img :src="`${INGREDIENTS_THUMB_URL}${ingredient}-Small.png`" alt="Igredient thumb">
 								<h3 class="ingredient-title">{{ ingredient }}</h3>
 							</swiper-slide>
 						</swiper>
