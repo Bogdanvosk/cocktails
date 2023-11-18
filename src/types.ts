@@ -71,3 +71,8 @@ export interface FullCocktail {
   strCreativeCommonsConfirmed: string
   dateModified: string
 }
+
+export type MyIngredient = {
+	name: string,
+	measure: string;
+};

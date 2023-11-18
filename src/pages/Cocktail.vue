@@ -4,24 +4,19 @@ import axios from 'axios';
 import AppLayout from '@/components/AppLayout.vue';
 import { computed, ref } from 'vue';
 import { COCKTAIL_BY_ID } from '@/constants';
-import type { FullCocktail, Items } from '@/types';
-
-type Ingredient = {
-	name: string,
-	measure: string;
-};
+import type { FullCocktail, MyIngredient, Items } from '@/types';
 
 const cocktail = ref<FullCocktail | any>();
 const route = useRoute();
 const cocktailId = computed(() => route.path.split('/').pop());
 
 const ingredients = computed(() => {
-	const ingredients: Ingredient[] = [];
+	const ingredients: MyIngredient[] = [];
 
 	for (let i = 0; i < 15; i++) {
 		if (cocktail.value && !cocktail.value[`strIngredient${i + 1}`]) break;
 
-		const ingredient: Ingredient = {
+		const ingredient: MyIngredient = {
 			name: '',
 			measure: ''
 		};

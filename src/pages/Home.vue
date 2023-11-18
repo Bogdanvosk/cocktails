@@ -3,9 +3,8 @@ import AppLayout from '@/components/AppLayout.vue';
 import CocktailThumb from '@/components/CocktailThumb.vue';
 import { useRootStore } from '@/stores/root';
 import { storeToRefs } from 'pinia';
-import { computed, ref } from 'vue';
 
-import img1 from '../assets/img/bg-1.jpg'
+import mainBgImg from '../assets/img/bg-1.jpg'
 
 const rootStore = useRootStore();
 rootStore.getIngredients();
@@ -23,7 +22,7 @@ const removeIngredient = () => {
 </script>
 
 <template>
-	<AppLayout :imgUrl="img1" :backFunc="removeIngredient" :isBackButtonVisible="!!currentIngredient">
+	<AppLayout :imgUrl="mainBgImg" :backFunc="removeIngredient" :isBackButtonVisible="!!currentIngredient">
 		<div class="wrapper">
 			<div v-if="!currentIngredient || !cocktails" class="info">
 				<h1 class="title">Choose your drink</h1>
